@@ -2,25 +2,28 @@
 {% load static %}
 
 {% block content %}
-<!--         {% for post in posts%}
-            <article class="post">
-            <h2><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h2>
-            <p>Creado: {{post.created_date}} </p>
-            <p>{{post.text|linebreaksbr}}</p>
-            <p></p>
-            <p>Autor: {{post.author}}</p> 
-            </article>          
-        {% endfor %}
- -->
-        {% for post in posts %}
+
+<article class="post">
+    <h2>Bienvenida y Presentación </h2>
+        <p><img src="{{post.image.url}}" alt="" style="width:80% "  ></p>
+        <p>Hola a tod@s!!<br>Mi nombre es Viviana Vargas, soy Ingeniera Industrial, mamá y esposa que adora la alimentación saludable.<br>Me encanta visitar y seguir influcers de estilos de vida saludable y verificar si las recetas que publican son del todo ciertas o son solo un "fake".<br>Tomare este espacio para compilar las recetas que considere son muy top por su sabor, practicidad y nutrición.</p>
+
+        <img src="/media/blog/presentacion.jpg" alt="" style="width:80%" >
+        <br>
+        <br>
+        <br>
+        <h1>Recetas</h1>
+</article>
+ 
+    {% for post in posts %}
         <article class="post">
             <time class="date">
                 {{ post.published_date }}
             </time>
             <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
-            <p>{{ post.text|linebreaksbr }}</p>
+                <p>{{ post.resumen|linebreaksbr }}</p>
         </article>
-     {% endfor %}
+    {% endfor %}
 {% endblock %}
 
 
